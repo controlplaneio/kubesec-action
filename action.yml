@@ -1,6 +1,9 @@
 name: ControlPlane Kubesec
 description: Scans k8s yaml with kubesec
 author: ControlPlane
+branding:
+  icon: shield
+  color: white
 inputs:
   input:
     description: The file to scan
