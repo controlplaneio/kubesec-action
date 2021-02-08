@@ -1,0 +1,34 @@
+name: ControlPlane Kubesec
+description: Scans k8s yaml with kubesec
+author: ControlPlane
+inputs:
+  input:
+    description: The file to scan
+    required: true
+    default: ""
+  format:
+    description: "Set output format (json, template)"
+    required: false
+    default: json
+  template:
+    description: Use an existing template for rendering output (templates/sarif.tpl)
+    required: false
+    default: ""
+  output:
+    description: Writes results to a file with the specified file name
+    required: false
+    default: ""
+  exit-code:
+    description: "exit code when vulnerabilities were found"
+    required: false
+    default: "2"
+runs:
+  using: docker
+  image: ./Dockerfile
+  args:
+    - scan
+    - "--format=${{ inputs.format }}"
+    - "--template=${{ inputs.template }}"
+    - "--output=${{ inputs.output }}"
+    - "--exit-code=${{ inputs.exit-code }}"
+    - ${{ inputs.input }}
