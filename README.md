@@ -1,3 +1,5 @@
+<p align="center"><img src="images/kubesec_logo.svg" width="200x" /></p>
+
 # Kubesec Action
 
 > [GitHub Action](https://github.com/features/actions) for [kubesec](https://github.com/controlplaneio/kubesec)
@@ -5,7 +7,7 @@
 [![GitHub Release][release_badge]][release]
 [![GitHub Marketplace][marketplace_badge]][marketplace]
 
-![kubesec_logo](images/kubesec_logo.svg)
+
 
 ## Table of Contents
 
@@ -28,13 +30,13 @@ on:
 jobs:
   lint:
     name: Lint
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Run kubesec scanner
-        uses: controlplaneio/kubesec-action@master
+        uses: controlplaneio/kubesec-action@v0.0.2
         with:
           input: file.yaml
 ```
@@ -53,13 +55,13 @@ on:
 jobs:
   lint:
     name: Lint
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Run kubesec scanner
-        uses: controlplaneio/kubesec-action@master
+        uses: controlplaneio/kubesec-action@v0.0.2
         with:
           input: file.yaml
           exit-code: "0"
@@ -73,9 +75,9 @@ jobs:
           sarif_file: kubesec-results.sarif
 ```
 
-## Customising
+## Customizing
 
-### inputs
+### Inputs
 
 Following inputs can be used as `step.with` keys:
 
